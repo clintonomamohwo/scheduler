@@ -1,5 +1,5 @@
-@import "styles/mixins.scss";
-@import "styles/variables.scss";
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
 
 .day-list {
   &__item {
@@ -28,7 +28,7 @@
     }
 
     &--full {
-      opacity: ($inactive-opacity);
+      opacity: $inactive-opacity;
     }
   }
 }
