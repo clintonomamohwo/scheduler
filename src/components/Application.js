@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import DayList from "./DayList";
 import "components/Application.scss"; 
 import Appointment from "components/Appointment";
+import React, { Fragment, useState } from "react";
+import axios from "axios";
 
 
 const appointments = [
@@ -42,29 +44,46 @@ const appointments = [
     time: "4pm",
   }
 ];
-const days = [
+// const days = [
 
-  {
+//   {
 
-    id: 1,
+//     id: 1,
 
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+//     name: "Monday",
+//     spots: 2,
+//   },
+//   {
+//     id: 2,
+//     name: "Tuesday",
+//     spots: 5,
+//   },
+//   {
+//     id: 3,
+//     name: "Wednesday",
+//     spots: 0,
+//   },
+// ];
+
 export default function Application(props) {
+  const [days, setDays] = useState([]);
   const [day, setDay] = useState("Monday");
   const [value, onChange] = useState(1)
+
+
+  const appointmentItems = appointments.map((appointment, _index) =>
+  <Appointment
+    key={appointment.id}
+    time={appointment.time}
+    interview={appointment.interview}
+  />
+);
+
+  useEffect(() => {
+    Axios.get("/api/days")
+    .then((res) => setDays(res.data))
+    .catch((err) => console.log(err));
+  }, []);
 
   return (
     <main className="layout">
