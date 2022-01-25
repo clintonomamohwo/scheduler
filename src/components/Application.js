@@ -6,44 +6,44 @@ import React, { Fragment, useState } from "react";
 import axios from "axios";
 
 
-const appointments = [
-  {
-    id: 1,
-    time: "12pm",
-  },
-  {
-    id: 2,
-    time: "1pm",
-    interview: {
-      student: "Lydia Miller-Jones",
-      interviewer:{
-        id: 3,
-        name: "Sylvia Palmer",
-        avatar: "https://i.imgur.com/LpaY82x.png",
-      }
-    }
-  },
-  {
-    id: 3,
-    time: "2pm",
-  },
-  {
-    id: 4,
-    time: "3pm",
-    interview: {
-      student: "Archie Andrews",
-      interviewer:{
-        id: 4,
-        name: "Cohana Roy",
-        avatar: "https://i.imgur.com/FK8V841.jpg",
-      }
-    }
-  },
-  {
-    id: 5,
-    time: "4pm",
-  }
-];
+// const appointments = [
+//   {
+//     id: 1,
+//     time: "12pm",
+//   },
+//   {
+//     id: 2,
+//     time: "1pm",
+//     interview: {
+//       student: "Lydia Miller-Jones",
+//       interviewer:{
+//         id: 3,
+//         name: "Sylvia Palmer",
+//         avatar: "https://i.imgur.com/LpaY82x.png",
+//       }
+//     }
+//   },
+//   {
+//     id: 3,
+//     time: "2pm",
+//   },
+//   {
+//     id: 4,
+//     time: "3pm",
+//     interview: {
+//       student: "Archie Andrews",
+//       interviewer:{
+//         id: 4,
+//         name: "Cohana Roy",
+//         avatar: "https://i.imgur.com/FK8V841.jpg",
+//       }
+//     }
+//   },
+//   {
+//     id: 5,
+//     time: "4pm",
+//   }
+// ];
 // const days = [
 
 //   {
@@ -66,18 +66,20 @@ const appointments = [
 // ];
 
 export default function Application(props) {
-  const [days, setDays] = useState([]);
-  const [day, setDay] = useState("Monday");
-  const [value, onChange] = useState(1)
 
+  const [value, onChange] = useState(1);
 
-  const appointmentItems = appointments.map((appointment, _index) =>
-  <Appointment
-    key={appointment.id}
-    time={appointment.time}
-    interview={appointment.interview}
-  />
-);
+// setState({ ...state, day: "Tuesday" });
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    appointments: {}
+  });
+
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  
+  const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
     Axios.get("/api/days")
@@ -96,7 +98,9 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-             <DayList days={days} day={day} setDay={setDay} />{" "}
+             <DayList days={state.days} 
+             day={state.day} 
+             setDay={setDay} />{" "}
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -106,7 +110,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
-        {appointments.map(appointment => 
+        {dailyAppointments.map(appointment => 
           <Appointment 
           key={appointment.id}
           {...appointment}
