@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 import "components/Application.scss";
 
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
+
+
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -30,6 +32,8 @@ export default function Application(props) {
     );
   }, []);
 
+  const interviewers = getInterviewersForDay(state, state.day);
+
   const appointments = getAppointmentsForDay(state, state.day).map(
     appointment => {
       return (
@@ -37,6 +41,7 @@ export default function Application(props) {
           key={appointment.id}
           {...appointment}
           interview={getInterview(state, appointment.interview)}
+          interviewers={interviewers}
         />
       );
     }
@@ -52,7 +57,9 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={state.days} day={state.day} setDay={setDay} />
+          <DayList days={state.days} 
+          day={state.day} 
+          setDay={setDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
