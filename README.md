@@ -42,7 +42,7 @@ npm test
 npm run storybook
 ```
 
-##Screenshots
+## Screenshots
 
 ```
 Initial/Home Page
