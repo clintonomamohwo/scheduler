@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
@@ -40,10 +40,24 @@ function bookInterview(id, interview) {
       ...state.appointments,
       [id]: appointment
     };
+    const foundDay = state.days.find((day) => day.appointments.includes(id));
+
+
+    const days = state.days.map((day, index) => {
+      if (
+        day.name === foundDay.name &&
+        state.appointments[id].interview === null
+      ) {
+        return { ...day, spots: day.spots - 1 };
+      } else {
+        return day;
+      }
+    });
 
     setState({
       ...state,
-      appointments
+      appointments,
+      days
     });
   });
 }
@@ -59,10 +73,19 @@ function cancelInterview(id) {
       ...state.appointments,
       [id]: appointment
     };
+    const foundDay = state.days.find((day) => day.appointments.includes(id));
+    const days = state.days.map((day, index) => {
+      if (day.name === foundDay.name) {
+        return { ...day, spots: day.spots + 1 };
+      } else {
+        return day;
+      }
+    });
 
     setState({
       ...state,
-      appointments
+      appointments,
+      days
     });
   });
 }

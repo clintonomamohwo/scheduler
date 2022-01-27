@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import "components/InterviewerListItem.scss"
 
 export default function InterviwerListItem(props) {
-  console.log("ILI: ", props)
+ 
 
   let interviewClass = classNames("interviewers__item", {
 
