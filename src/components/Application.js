@@ -35,7 +35,7 @@ export default function Application(props) {
 
   function bookInterview(id, interview) {
     console.log(id, interview);
-    return axios.put(`http://localhost:8000/api/appointments/${id}`, { interview }).then(() => {
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       const appointment = {
         ...state.appointments[id],
         interview: { ...interview }
