@@ -44,21 +44,21 @@ npm run storybook
 
 ##Screenshots
 
-```sh
+```
 Initial/Home Page
 ```
 
 !["Initial/Home Page"](https://github.com/clintonomamohwo/scheduler/blob/master/docs/HomePage.png?raw=true)
 
 
-```sh
+```
 Creating Appointment
 ```
 
 !["Creating Appointment"](https://github.com/clintonomamohwo/scheduler/blob/master/docs/CreatingAppointment.png?raw=true)
 
 
-```sh
+```
 Deleting Appointment
 ```
 
