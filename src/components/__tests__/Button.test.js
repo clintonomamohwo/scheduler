@@ -6,6 +6,9 @@ import Button from "components/Button";
 
 afterEach(cleanup);
 
+
+// Jest tests for the Button component.
+
 it("renders without crashing", () => {
   render(<Button />);
 });

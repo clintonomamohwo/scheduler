@@ -10,12 +10,11 @@ export default function Empty(props) {
   const [error, setError] = useState("");
 
   const reset = () => {
-    setName('')
+    setName("")
     setInterviewer(null)
   }
 
   const cancel = () => {
-    console.log('clicked')
     reset()
     props.onCancel()
   }

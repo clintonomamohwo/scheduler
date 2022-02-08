@@ -6,6 +6,7 @@ import DayListItem from "components/DayListItem";
 
 afterEach(cleanup);
 
+// Jest tests for the DayListItem component.
 it("renders without crashing", () => {
   render(<DayListItem />);
 });

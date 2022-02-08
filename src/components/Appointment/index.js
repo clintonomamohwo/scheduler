@@ -1,6 +1,6 @@
 import React from "react";
 import "components/Appointment/styles.scss";
-import classNames from "classnames";
+// import classNames from "classnames";
 import useVisualMode from "hooks/useVisualMode";
 import Header from "./Header";
 import Show from "./Show";
@@ -20,16 +20,17 @@ const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
-
+//Appointment component definition.
 export default function Appointment(props) {
   // console.log(props);
+
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
-  // let apptClasses = classNames("appointment", {});
-  // console.log(apptClasses);
+  //console.log("MODE", mode)
 
+//Takes name and interviewer from the form and stores them as object
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -43,6 +44,7 @@ export default function Appointment(props) {
     .then(() => transition(SHOW))
     .catch(error => transition(ERROR_SAVE, true));
   }
+  
 
   function destroy(event) {
     transition(DELETING, true);

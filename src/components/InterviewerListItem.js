@@ -2,6 +2,8 @@ import React from "react";
 import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
+
+// React component that displays an interviewer avatar and name
 export default function InterviwerListItem(props) {
   let interviewClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,

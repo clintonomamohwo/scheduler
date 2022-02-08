@@ -19,6 +19,10 @@ describe("Form", () => {
     }
   ];
 
+  it("renders without crashing", () => {
+    render(<Form interviewers={interviewersData} />);
+  });
+
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />

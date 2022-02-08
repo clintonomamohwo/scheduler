@@ -1,3 +1,6 @@
+
+// Cypress tests for creating, editing and deleting appointments.
+
 describe("Appointments", () => {
   beforeEach(() => {
    cy.request("GET", "/api/debug/reset");

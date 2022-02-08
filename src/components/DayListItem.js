@@ -2,6 +2,8 @@ import React from "react";
 import "components/DayListItem.scss";
 import classnames from "classnames";
 
+
+// React component that siplays the days on the sidebar.
 export default function DayListItem(props) {
   const dayClass = classnames("day-list__item", {
     "day-list__item--selected": props.selected,

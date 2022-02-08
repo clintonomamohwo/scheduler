@@ -1,3 +1,5 @@
+// Helper functions for managing appointments and interviews.
+
 export function getAppointmentsForDay(state, day) {
   const found = state.days.find((d) => day === d.name);
 

@@ -3,6 +3,7 @@ import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
 import PropTypes from "prop-types";
 
+// React component that displays a list of interviewers
 export default function InterviewerList(props) {
   InterviewerList.propTypes = {
     interviewers: PropTypes.array.isRequired,
