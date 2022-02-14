@@ -20,6 +20,10 @@ import Confirm from "components/Appointment/Confirm"
 import Error from "components/Appointment/Error"
 import Form from "components/Appointment/Form"
 
+
+// Storybook component stories for isolated componentdevelopment and testing.
+
+
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],

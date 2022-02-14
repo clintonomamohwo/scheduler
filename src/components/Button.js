@@ -3,6 +3,9 @@ import React from "react";
 import "components/Button.scss";
 import classNames from "classnames";
 
+
+
+// React component for the Buttons
 export default function Button(props) {
   let buttonClass = classNames("button", {
     "button--confirm": props.confirm,

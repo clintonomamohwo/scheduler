@@ -9,9 +9,10 @@ export default function InterviewerList(props) {
     interviewers: PropTypes.array.isRequired,
   };
 
+  console.log("Props",props);
   const interviewers = props.interviewers.map((interviewer) => {
     // console.log(interviewer);
-    // console.log(interviewers);
+    
     return (
       <InterviewerListItem
         key={interviewer.id}
