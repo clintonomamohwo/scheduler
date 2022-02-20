@@ -21,11 +21,10 @@ export default function Application(props) {
 
   
   const appointments = getAppointmentsForDay(state, state.day)
-  console.log("Appointments first",appointments)
-  const Firstappointments = appointments.slice(0,appointments.length-2).map(
+
+  const Firstappointments = appointments.map(
     (appointment) => {
-      // console.log("Appointment",appointment);
-      // console.log("interviewers",interviewers)
+
       return (
         <Appointment
           key={appointment.id}
@@ -38,9 +37,7 @@ export default function Application(props) {
       );
     }
   );
-  const LastAppointment = appointments[appointments.length-1]
-    const Lastinterview =LastAppointment ? getInterview(state, LastAppointment.interview) : null;
-    console.log("Appointments",appointments)
+  
   return (
     <main className="layout">
       <section className="sidebar">
@@ -62,13 +59,8 @@ export default function Application(props) {
       <section className="schedule">
         <section className="schedule">
           {Firstappointments}
-          <Appointment 
-          key="Last"
-          {...LastAppointment}
-          interview={Lastinterview}
-          interviewers={interviewers}
-          bookInterview={bookInterview}
-          cancelInterview={cancelInterview} 
+          <Appointment className=""
+          key="Last Appointment"
           time="5pm"  />
         </section>
       </section>
