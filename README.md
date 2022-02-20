@@ -4,9 +4,11 @@ Schedular App allows the user to create/book an appointment on weekdays(Monday t
 Appointment can be done for different days and times, and can be edited or deleted.
 
  It is a demonstration of responsive, single-page web app design using React that is suitable for use on any device.
+ 
+ Here's a Link to the back end API : https://github.com/clintonomamohwo/scheduler-api
 
 
-Includes testing suites using both Jest and Cypress
+# Includes testing suites using both Jest and Cypress
 
 
 ## Setup
