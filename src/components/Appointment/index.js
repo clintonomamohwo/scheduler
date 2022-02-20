@@ -22,13 +22,12 @@ const ERROR_DELETE = "ERROR_DELETE";
 
 //Appointment component definition.
 export default function Appointment(props) {
-  // console.log(props);
+
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
-  //console.log("MODE", mode)
 
 //Takes name and interviewer from the form and stores them as object
   function save(name, interviewer) {
@@ -56,7 +55,7 @@ export default function Appointment(props) {
 
 
   return (
-    <article>
+    <article className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
